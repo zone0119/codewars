@@ -1,0 +1,67 @@
+function absentVowel(x){
+console.log('-x-')
+  console.log(x);
+  
+  let str = x;
+const myArr = str.split("");
+
+
+
+function startsWith(word) {
+  word = word.toUpperCase();
+  switch (word) {
+  case 'A':
+     return 0;
+   
+  case 'E':
+     return 1;
+   
+  case 'I':
+    return 2;
+      
+  case 'O':      
+    return 3;
+      
+  case 'U':
+    return 4;
+
+}
+  
+  
+}
+
+whatFoundArr = myArr.filter(startsWith);
+
+
+
+return chercker(whatFoundArr);
+
+function chercker(whatFoundArr)
+ {
+   
+  if (!(whatFoundArr.includes('A'))) {
+          return 0;
+      } 
+  else if (!(whatFoundArr.includes('E'))) {
+          return 1;
+      } 
+  else if (!(whatFoundArr.includes('I'))) {
+          return 2;
+      }
+  else if (!(whatFoundArr.includes('O'))) {
+          return 3;
+      } 
+  else if (!(whatFoundArr.includes('U'))) {
+          return 4;
+      } 
+
+}
+     
+
+
+  
+  
+  
+  
+  
+}
