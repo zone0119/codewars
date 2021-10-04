@@ -1,0 +1,68 @@
+function absentVowel(x) {
+  var vowels = 'aeiou';
+  for (var i in vowels) {
+    if (x.toLowerCase().indexOf(vowels[i]) == -1) {
+      return Number(i);
+    }
+  }
+}
+
+
+const absentVowel = string =>
+  [...'aeiou'].findIndex(letter => !string.includes(letter))
+  
+  
+  const absentVowel = x =>
+  [...`aeiou`].findIndex(val => !x.includes(val));
+  
+  
+  const absentVowel = x => {
+  for(var v in 'aeiou')
+    if(x.indexOf('aeiou'[v])==-1)
+      return +v
+}
+  
+  function absentVowel(x) {
+  return ["a", "e", "i", "o", "u"].findIndex(v => !x.includes(v));
+}
+
+
+function absentVowel(x){
+  let vowels = {'a' : 0, 'e' : 1, 'i' : 2, 'o' : 3, 'u' : 4};
+  
+  for(let i in vowels) {
+    if(!x.includes(i)) return vowels[i];
+  }
+}
+
+
+function absentVowel(x){
+  switch(-1)
+  {
+    case x.split('').indexOf('a'): return 0;
+    case x.split('').indexOf('e'): return 1;
+    case x.split('').indexOf('i'): return 2;
+    case x.split('').indexOf('o'): return 3;
+    case x.split('').indexOf('u'): return 4;
+  }
+}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
