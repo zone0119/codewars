@@ -1,0 +1,21 @@
+
+
+function getMiddle(s)
+{  
+  let length = s.length;
+  let half = length/2 ;
+  let ceilHalf = Math.ceil( half);
+
+  if(length % 2 == 0 ) 
+  {
+    s = s.substr(half - 1, 2)
+  }
+  else
+  {
+   s = s.substr(ceilHalf - 1, 1)
+  }
+  console.log( s );
+  return s;
+}
+
+//getMiddle("testing");
