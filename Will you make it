@@ -1,0 +1,36 @@
+const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
+  return distanceToPump/mpg <= fuelLeft
+};
+
+
+const zeroFuel = (distanceToPump, mpg, fuelLeft) => mpg * fuelLeft >= distanceToPump;
+
+
+const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
+  return (mpg * fuelLeft) >= distanceToPump;
+};
+
+
+function zeroFuel(distanceToPump, mpg, fuelLeft) {
+  return (distanceToPump > mpg * fuelLeft) ? false : true;
+}
+
+const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
+  if (mpg*fuelLeft >= distanceToPump) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+zeroFuel = (_,__,___) => ___*__>=_
+
+
+const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
+  if ((distanceToPump/mpg) <= fuelLeft){
+    return true;
+  }else{
+    return false;
+  }
+};
+(100, 50, 1);
