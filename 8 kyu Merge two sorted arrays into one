@@ -1,0 +1,198 @@
+function mergeArrays(arr1, arr2) {
+  return Array.from(new Set(arr1.concat(arr2).sort((a,b) => (a-b))));
+}
+
+
+
+function mergeArrays(arr1, arr2) {
+  return unique(arr1.concat(arr2).sort(compareNumeric));
+  function unique(arr)
+  {
+    for(var i=0; i<arr.length; ++i) {
+      if (arr[i-1]===arr[i])
+        {
+          arr.splice(i, 1);
+          i=i-1;
+        }
+    }
+    return arr;
+  }
+  function compareNumeric(a, b) {
+  if (a > b) return 1;
+  if (a == b) return 0;
+  if (a < b) return -1;
+}
+}
+
+
+
+
+function mergeArrays(arr1, arr2) {
+  var i = 0;
+  var j = 0;
+  var result = [];
+
+  while (i < arr1.length && j < arr2.length) {
+      
+      
+
+      if (arr1[i] <= arr2[j]) {
+          result.push(arr1[i]);
+          i += 1;
+      } else {
+          result.push(arr2[j]);
+          j += 1;
+      }
+  }
+
+
+  while (i < arr1.length) {
+      result.push(arr1[i]);
+      i += 1;
+  }
+
+  while (j < arr2.length) {
+      result.push(arr2[j]);
+      j += 1;
+  }
+
+  let res = [...new Set(result)];
+
+  res.sort(function(a,b) {return a - b});
+  return res;
+}
+
+
+
+function mergeArrays(a, b) {
+  let [i, di, ni] = [0,1,a.length];
+  let [j, dj, nj] = [0,1,b.length];
+  if (ni>1 && a[0] > a[ni-1]){i=ni-1; di = -1; ni = -1;}
+  if (nj>1 && b[0] > b[nj-1]){j=nj-1; dj = -1; nj = -1;}
+  let r = [];
+  while (i !== ni || j !== nj) {
+    if (i === ni || b[j] <= a[i] )  {if(r[r.length-1]!==b[j]) r.push(b[j]); j+=dj;}
+    else if (j === nj || a[i] <= b[j]) { if(r[r.length-1]!==a[i]) r.push(a[i]); i+=di;}
+  }
+  return r;
+}
+
+const mergeArrays = (a, b) => Array.from(new Set(a.concat(b))).sort((a, b) => a - b);
+
+function mergeArrays(arr1, arr2) {
+  return arr1
+    .filter((item) => !arr2.includes(item))
+    .concat(arr2)
+    .sort((a, b) => a - b)
+}
+
+function mergeArrays(arr1, arr2) {
+  let res = [];
+  arr1.concat(arr2).forEach(el => !res.includes(el) ? res.push(el) : 0);
+  return res.sort( (a, b) => a - b);
+}
+
+
+function mergeArrays(a, b) {
+  return [...new Set(a.concat(b))].sort((a,b)=>a-b)
+}
+
+
+
+const _ = require('lodash');
+
+function mergeArrays(arr1, arr2) {
+  return _.sortBy(_.union(arr1, arr2));
+}
+
+
+let mergeArrays = (a, b) => [...new Set([...a, ...b])].sort((a,b)=> a-b)
+
+
+
+
+function descendingDescending(arr1, arr2){
+  let i = arr1.length - 1, j = arr2.length - 1, output = [];
+  while (i >= 0 && j >= 0){
+    if (arr1[i] < arr2[j]){
+      output[output.length] = arr1[i];
+      i--;
+    }
+    else if (arr1[i] > arr2[j]){
+      output[output.length] = arr2[j];
+      j--;
+    }
+    else{
+      output[output.length] = arr1[i];
+      i--;
+      j--;
+    }
+  }
+  for (; i >= 0; i--)
+    output[output.length] = arr1[i];
+  for (; j >= 0; j--)
+    output[output.length] = arr2[j];
+  return output;
+}
+
+function ascendingDescending(arr1, arr2){
+  let i = 0, j = arr2.length - 1, output = [];
+  while (i < arr1.length && j >= 0){
+    if (arr1[i] < arr2[j]){
+      output[output.length] = arr1[i];
+      i++;
+    }
+    else if (arr1[i] > arr2[j]){
+      output[output.length] = arr2[j];
+      j--;
+    }
+    else{
+      output[output.length] = arr1[i];
+      i++;
+      j--;
+    }
+  }
+  for (; i < arr1.length; i++)
+    output[output.length] = arr1[i];
+  for (; j >= 0; j--)
+    output[output.length] = arr2[j];
+  return output;
+}
+
+function ascendingAscending(arr1, arr2){
+  let i = 0, j = 0, output = [];
+  while (i < arr1.length && j < arr2.length){
+    if (arr1[i] < arr2[j]){
+      output[output.length] = arr1[i];
+      i++;
+    }
+    else if (arr1[i] > arr2[j]){
+      output[output.length] = arr2[j];
+      j++;
+    }
+    else{
+      output[output.length] = arr1[i];
+      i++;
+      j++;
+    }
+  }
+  for (; i < arr1.length; i++)
+    output[output.length] = arr1[i];
+  for (; j < arr2.length; j++)
+    output[output.length] = arr2[j];
+  return output;
+}
+
+function mergeArrays(arr1, arr2) {
+  let caseMap = 0;
+  if (arr1[0] < arr1[arr1.length - 1])
+    caseMap += 2;
+  if (arr2[0] < arr2[arr2.length - 1])
+    caseMap += 1;
+  switch (caseMap){
+    case 0 : return descendingDescending(arr1, arr2);
+    case 1 : return ascendingDescending(arr2, arr1);
+    case 2 : return ascendingDescending(arr1, arr2);
+    case 3 : return ascendingAscending(arr1, arr2);
+  }
+}
