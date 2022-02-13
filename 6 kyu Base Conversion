@@ -1,0 +1,40 @@
+function convert(input, source, target) {
+   console.log(arguments );
+ 
+   console.log( input + ' input' );
+  console.log( source + ' source' );
+  console.log( target + ' target' );
+let baseSource = source.length;
+  
+
+  let  numbers = input.split('').reverse();
+const binToDec = numbers.map(((num, index) =>source.indexOf(num) * Math.pow(baseSource, index ) )).reduce(function(a, b) {return a + b;});
+
+  
+  console.log(binToDec + ' binToDec ');
+  
+
+
+let number=binToDec;
+let fraction = '';
+let isEnd = true;
+let baseTarget = target.length;
+
+  
+  
+let res = '';
+while(isEnd) {
+ fraction = target[(number % baseTarget)];
+  res = fraction + res;  
+  number = Math.trunc(number / baseTarget);
+  console.log('number : ' + number);
+  console.log('fraction : ' + fraction);
+   console.log('res : ' + res);
+  if(number == 0)
+  isEnd = false;
+}
+
+    console.log('---reverse : ' + res + '\n\n');
+
+  return res;
+}
